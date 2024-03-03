@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  uma_id: 1
+  year: MyString
+  image: MyString
+  about_uma: MyText
+  about_race: MyText
+  sex: MyString
+
+two:
+  name: MyString
+  uma_id: 1
+  year: MyString
+  image: MyString
+  about_uma: MyText
+  about_race: MyText
+  sex: MyString
