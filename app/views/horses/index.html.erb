@@ -24,7 +24,8 @@
       <%= t.about_uma %>
       <%= t.about_race %>
       <%= t.sex %>
-      
+      <%= image_tag t.image_url, size: "250x200" if t.image? %>
+
       <%= link_to t.user.name, user_path(t.user.id) %>
        
 

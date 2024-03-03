@@ -24,13 +24,10 @@
   
   </div>
 
-<div class="field">
+  <div class="field">
     <%= f.label :馬の写真  %>
-    <%= f.select :image, 
-    [["A", "A"], 
-    ["B", "B"],
-    ["C", "C"]], include_blank: "選択して下さい" %>
-  
+    <%= f.label :image %>
+    <%= f.file_field :image %> 
   </div>
 
   <div class="field">
