@@ -14,10 +14,20 @@
  *= require_self
  */
 .header-list{
-    background-color: green;
+    background-color: lightgreen;
 display: flex;
-
 }
+
 .header-list2{
-    margin-left: 950px;
+    margin-left: 1200px;
+}
+
+
+
+.header-list1{
+    font-size: 25px;
+}
+
+.header-list2{
+    font-family: "";
 }

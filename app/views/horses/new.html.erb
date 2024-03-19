@@ -1,32 +1,29 @@
-<h1>uma</h1>
-<h3>新規uma</h3>
+<h1>競走馬入力</h1>
+<h3>競走馬の説明</h3>
 <%= form_for @horse do |f| %>
 
-# データ型がstringで自由記述の入力フォーム
+
   
 
 
-# データ型がstringで選択式の入力フォーム
-  <div class="field">
+
+ <div class="field">
     <%= f.label :馬の名前  %>
-    <%= f.select :name,
-    [["A", "A"], 
-    ["B", "B"], 
-    ["C", "C"]], include_blank: "選択して下さい" %>
+    <%= f.text_area :name, :size => "20x1" %>
   </div>
 
   <div class="field">
     <%= f.label :馬の年代  %>
     <%= f.select :year, 
-    [["A", "A"], 
-    ["B", "B"], 
-    ["C", "C"]], include_blank: "選択して下さい" %>
+    [["~2000", "~2000"], 
+    ["2001~", "2001~"], 
+    ["2011~", "2011~"]], include_blank: "選択して下さい" %>
   
   </div>
 
   <div class="field">
     <%= f.label :馬の写真  %>
-    <%= f.label :image %>
+    
     <%= f.file_field :image %> 
   </div>
 
@@ -41,24 +38,27 @@
   
 
 
-# データ型がintegerで数字のみを入力するフォーム
-  <div class="field">
+
+   <div class="field">
     <%= f.label :馬の識別番号  %>
     <%= f.number_field :uma_id, :size => 10 %>
   </div>
 
-# データ型がtextで自由記述の入力フォーム
+  
+
+
+
   <div class="field">
     <%= f.label :馬の説明  %>
-    <%= f.text_area :about_uma, :size => "30x2" %>
+    <%= f.text_area :about_uma, :size => "40x3" %>
   </div>
 
   <div class="field">
     <%= f.label :レースの説明  %>
-    <%= f.text_area :about_race, :size => "30x2" %>
+    <%= f.text_area :about_race, :size => "40x3" %>
   </div>
 
-  iv class='form-group'>
+  <div class='form-group'>
   <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
       <div class='form-check'>
           <%= tag.label class: 'form-check-label' do %>
@@ -67,7 +67,7 @@
           <% end %>
       </div>
   <% end %>
-</div>
+  </div>
 
   <%= f.submit "投稿する" %>
 <% end %>
