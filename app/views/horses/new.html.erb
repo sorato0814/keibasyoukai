@@ -1,75 +1,76 @@
-<h1>競走馬入力</h1>
-<h3>競走馬の説明</h3>
-<%= form_for @horse do |f| %>
+<div class=new-block>
+
+  <h1>競走馬入力</h1>
+  <h3>競走馬の説明</h3>
+  <%= form_for @horse do |f| %>
 
 
-  
-
-
-
- <div class="field">
-    <%= f.label :馬の名前  %>
-    <%= f.text_area :name, :size => "20x1" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :馬の年代  %>
-    <%= f.select :year, 
-    [["~2000", "~2000"], 
-    ["2001~", "2001~"], 
-    ["2011~", "2011~"]], include_blank: "選択して下さい" %>
-  
-  </div>
-
-  <div class="field">
-    <%= f.label :馬の写真  %>
     
-    <%= f.file_field :image %> 
-  </div>
-
-  <div class="field">
-    <%= f.label :馬の性別  %>
-    <%= f.select :sex, 
-    [["牡馬", "牡馬"], 
-    ["牝馬", "牝馬"]], include_blank: "選択して下さい" %>
-  
-  </div>
-  
-  
-
-
-
-   <div class="field">
-    <%= f.label :馬の識別番号  %>
-    <%= f.number_field :uma_id, :size => 10 %>
-  </div>
-
-  
 
 
 
   <div class="field">
-    <%= f.label :馬の説明  %>
-    <%= f.text_area :about_uma, :size => "40x3" %>
-  </div>
+      <%= f.label :馬の名前  %>
+      <%= f.text_area :name, :size => "20x1" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :レースの説明  %>
-    <%= f.text_area :about_race, :size => "40x3" %>
-  </div>
+    <div class="field">
+      <%= f.label :馬の年代  %>
+     
+      <%= f.text_area :year, :size => "20x1" %>
+    </div>
 
-  <div class='form-group'>
-  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-      <div class='form-check'>
-          <%= tag.label class: 'form-check-label' do %>
-              <%= tag.check_box class: 'form-check-input' %>
-              <%= tag.text %>
-          <% end %>
-      </div>
+    <div class="field">
+      <%= f.label :馬の写真  %>
+      
+      <%= f.file_field :image %> 
+    </div>
+
+    <div class="field">
+      <%= f.label :馬の性別  %>
+      <%= f.select :sex, 
+      [["牡馬", "牡馬"], 
+      ["牝馬", "牝馬"]], include_blank: "選択して下さい" %>
+    
+    </div>
+    
+    
+
+
+
+    <div class="field">
+      <%= f.label :馬の識別番号  %>
+      <%= f.number_field :uma_id, :size => 10 %>
+    </div>
+
+    
+
+
+
+    <div class="field">
+      <%= f.label :馬の説明  %>
+      <%= f.text_area :about_uma, :size => "40x3" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :レースの説明  %>
+      <%= f.text_area :about_race, :size => "40x3" %>
+    </div>
+
+    <div class='form-group'>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+        <div class='form-check'>
+            <%= tag.label class: 'form-check-label' do %>
+                <%= tag.check_box class: 'form-check-input' %>
+                <%= tag.text %>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
+
+    <%= f.submit "投稿する" %>
   <% end %>
-  </div>
 
-  <%= f.submit "投稿する" %>
-<% end %>
+  <%= link_to "一覧に戻る", horses_path %>
 
-<%= link_to "一覧に戻る", horses_path %>
+</div>  

@@ -1,59 +1,54 @@
-<h1>GeekTwitter</h1>
-<h3>Horse詳細</h3>
-<div class="horse">
-  <p><%= @horse.name %></p>
-  <p><%= @horse.uma_id %></p>
-  <p><%= @horse.year %></p>
-  <p><%= @horse.image %></p>
-  <p><%= @horse.about_uma %></p>
-  <p><%= @horse.about_race %></p>
-  <p><%= @horse.sex %></p>
-  <p><%= @horse.created_at %></p>
+<div class="show-block">  
+  <h1>競走馬の詳細</h1>
 
-  <% if user_signed_in? %>
-  <% if current_user.already_liked?(@horse) %>
-    <%= link_to horse_like_path(@horse), method: :delete do %>
-      <p>いいねを取り消す</p><%= @horse.likes.count %>
-    <% end %>
-  <% else %>
-    <%= link_to horse_likes_path(@horse), method: :post do %>
-      <p>いいね</p><%= @horse.likes.count %>
-    <% end %>
-  <% end %>
-<% else %>
-  <p>いいねの数 = </p><%= @horse.likes.count %>
-<% end %>
-<%= link_to "編集する", edit_horse_path(@horse.id) %>
-</div>
+  <div class="horse">
+    <h4>名前</h4>
+    <p><%= @horse.name %></p>
+    <h4>性別</h4>
+    <p><%= @horse.sex %></p>
+    <h4>年代（クラシックの世代）</h4>
+    <p><%= @horse.year %></p>
+    <h4>馬の説明</h4>
+    <p><%= @horse.about_uma %></p>
+    <h4>レースの説明</h4>
+    <p><%= @horse.about_race %></p>
+    <h4>写真のリンク</h4>
+    <p><%= @horse.image %></p>
+    <h4>識別番号</h4>
+    <p><%= @horse.uma_id %></p>
+    <p><%= @horse.created_at %></p>
 
-<h2>いいねしたユーザー</h2>
-<% @horse.liked_users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
-
-<div class="comment-wrapper">
-  <p>コメント一覧</p>
-  <% @comments.each do |c| %>
-    <div>
-      <%= c.user.email unless c.user.blank? %>
-      <br>
-      <%= c.content %>
-    </div>
-      <br>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <%= form_with(model: [@horse, @comment], local: true) do |f| %>
-      <%= f.text_area :content %>
-      <%= button_tag type: "submit" do %>
-        <i class="far fa-comments"></i> コメントする
+    <% if user_signed_in? %>
+    <% if current_user.already_liked?(@horse) %>
+      <%= link_to horse_like_path(@horse), method: :delete do %>
+        <p>いいねを取り消す</p><%= @horse.likes.count %>
+      <% end %>
+    <% else %>
+      <%= link_to horse_likes_path(@horse), method: :post do %>
+        
+        <p>いいねの数 = </p><%= @horse.likes.count %>
       <% end %>
     <% end %>
+  <% else %>
+    <p>いいねの数 = </p><%= @horse.likes.count %>
   <% end %>
-</div>
 
-<% @horse.tags.each do |tag| %>
-  <span><%= tag.name %></span>
-<% end %>
 
-<%= link_to "一覧に戻る", horses_path %>
+
+  <h3>いいねしたユーザー</h3>
+  <% @horse.liked_users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+
+  <%= link_to "編集する", edit_horse_path(@horse.id) %>
+  </div>
+
+  
+
+  <% @horse.tags.each do |tag| %>
+    <span><%= tag.name %></span>
+  <% end %>
+
+  <%= link_to "一覧に戻る", horses_path %>
+
+</div>  

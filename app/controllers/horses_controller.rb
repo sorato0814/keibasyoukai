@@ -61,9 +61,7 @@ class HorsesController < ApplicationController
   
     def show
       @horse = Horse.find(params[:id])
-      @comments = @horse.comments
-      @comment = Comment.new
-    end
+     end
 
     def destroy
       horse = Horse.find(params[:id])

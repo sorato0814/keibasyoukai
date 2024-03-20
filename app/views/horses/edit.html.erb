@@ -1,20 +1,27 @@
-<%= form_for @horse do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :size => 10 %> 
-    <%= f.label :year %>
-    <%= f.text_field :year, :size => 10 %> 
-    <%= f.label :image %>
-    <%= f.text_field :image, :size => 10 %> 
-    <%= f.label :sex %>
-    <%= f.text_field :sex, :size => 10 %> 
-    <%= f.label :uma_id %>
-    <%= f.text_field :uma_id, :size => 10 %> 
-    <%= f.label :about_uma %>
-    <%= f.text_field :about_uma, :size => 10 %> 
-    <%= f.label :about_race %>
-    <%= f.text_field :about_race, :size => 10 %> 
+<div class=edit-block> 
+   <%= form_for @horse do |f| %>
+      <h4>馬の名前</h4>  
+      <%= f.text_field :name, :size => 10 %>
+      <h4>年代</h4> 
+      <%= f.text_field :year, :size => 10 %> 
+      <h4>写真のリンク</h4>
+      <%= f.text_field :image, :size => 90 %> 
+      <h4>性別</h4>
+      
+      <%= f.select :sex, 
+        [["牡馬", "牡馬"], 
+        ["牝馬", "牝馬"]], include_blank: "選択して下さい" %>
+      <h4>識別番号</h4>
+      
+      <%= f.number_field :uma_id, :size => 5 %>
+      <h4>馬の説明</h4>
+      <%= f.text_field :about_uma, :size => 200 %> 
+      <h4>レースの説明</h4>
+      <%= f.text_field :about_race, :size => 200 %> 
 
 
 
-    <%= f.submit "編集する" %>
-  <% end %>
+      <%= f.submit "編集する" %>
+    <% end %>
+
+</div>

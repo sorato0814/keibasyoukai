@@ -14,20 +14,25 @@
  *= require_self
  */
 .header-list{
-    background-color: lightgreen;
+    
 display: flex;
+background-image: url(efforia2.jpg);
+
 }
 
 .header-list2{
     margin-left: 1200px;
+
 }
 
 
 
 .header-list1{
     font-size: 25px;
+    font-family: serif;
+    margin-left: 120px;
+    font-weight: bolder;
+    color:red;
+    
 }
 
-.header-list2{
-    font-family: "";
-}

@@ -12,16 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2024_03_03_093356) do
 
-  create_table "comments", force: :cascade do |t|
-    t.string "content"
-    t.integer "user_id", null: false
-    t.integer "horse_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["horse_id"], name: "index_comments_on_horse_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
   create_table "horse_tag_relations", force: :cascade do |t|
     t.integer "horse_id", null: false
     t.integer "tag_id", null: false
@@ -73,8 +63,6 @@ ActiveRecord::Schema.define(version: 2024_03_03_093356) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "horses"
-  add_foreign_key "comments", "users"
   add_foreign_key "horse_tag_relations", "horses"
   add_foreign_key "horse_tag_relations", "tags"
   add_foreign_key "likes", "horses"

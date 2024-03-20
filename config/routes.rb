@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   get 'horses/:horse_id/likes' => 'likes#create'
   get 'horses/:horse_id/likes/:id' => 'likes#destroy'
   resources :horses
-
+  root 'horses#index'
   resources :horses do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
   end
-  root 'horses#index'
+ 
   
   resources :restaurants, only: [:index, :show] 
   namespace :admin do

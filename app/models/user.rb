@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :name, presence: true #追記
   validates :profile, length: { maximum: 200 } #追記
  
-  has_many :comments, dependent: :destroy
   #mount_uploader :image, ImageUploader
 
   def already_liked?(horse)
